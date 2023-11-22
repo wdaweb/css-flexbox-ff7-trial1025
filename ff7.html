@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ff7</title>
+  <style>
+    body{
+      height: 100%;
+      background-image: url(./homework_ff7/bg-full.jpg);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #box{
+      display: flex;
+      width: 80%;
+      height: 768px;
+      background: lightblue;
+      margin: auto;
+      margin-top: 4%;
+    }
+
+    #col{
+      width: 50%;
+      height: 100%;
+      background-image: url(./homework_ff7/main.jpg);
+      background-repeat: no-repeat;
+      flex-direction: column;
+    }
+    #glass{
+      width: 100%;
+      height: 100%;
+      backdrop-filter: brightness(50%);
+    }
+
+    .ps4-1{
+      width: 100%;
+      height: 60%;
+    }
+
+    .ps4-1 img{
+      width: 25%;
+      margin-left: 35%;
+      margin-top: 20%;
+    }
+    .ps4-2{
+      width: 100%;
+      height: 40%;
+    }
+
+    .ps4-2 .text{
+      width: 70%;
+      margin: auto;
+    }
+
+    .ps4-2 h1{
+      text-align: center;
+      color: aliceblue;
+    }
+    .ps4-2 p{
+      text-align: center;
+      color: aliceblue;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+
+    #col1{
+      width: 100%;
+      height: 50%;
+      background: lightcoral;
+      display: flex;
+      position: relative;
+      
+    }
+
+    #col1 img{
+      height: 90%;
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    #col1 .text{
+      position: absolute;
+      width: 60%;
+      top: 15%;
+      left: 5%;
+      font-size: 20px;
+    }
+
+    .box1{
+      width: 40%;
+      height: 100%;
+    }
+
+    #col2{
+      width: 100%;
+      height: 50%;
+      display: flex;
+      position: relative;
+      
+    }
+
+    #col2 img{
+      height: 80%;
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    #col2 .text{
+      position: absolute;
+      color: aliceblue;
+      width: 60%;
+      top: 15%;
+      right: 10%;
+      font-size: 20px;
+      z-index: 1;
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="box">
+    <div id="col">
+      <div id="glass">
+        <div class="ps4-1">
+          <img src="./homework_ff7/ps4-ff7.png" alt="">
+        </div>
+        <div class="ps4-2">
+          <div class="text">
+            <h1>AVAILABLE NOW</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro officiis dolorum delectus modi et architecto earum, a cupiditate velit aspernatur nesciunt quibusdam perspiciatis alias aut temporibus eveniet voluptate in tempore?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste obcaecati iusto doloribus delectus quidem aliquid vero perferendis maiores esse ut ipsam, odit consectetur optio repellendus. Hic odit dicta nobis nisi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="col">
+      <div id="col1" style="background: rgb(190, 190, 190);flex-direction: row-reverse;">
+        <div class="text">
+          <h1>Cloud</h1>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro officiis dolorum delectus modi et architecto earum, a cupiditate velit aspernatur nesciunt quibusdam perspiciatis alias aut temporibus eveniet voluptate in tempore?</p>
+        </div>
+        <div class="box1">
+          <img src="./homework_ff7/cloud.png" >
+        </div>
+      </div>
+      <div id="col2" style="background: black;">
+        <div class="text">
+          <h1>Tifa</h1>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro officiis dolorum delectus modi et architecto earum, a cupiditate velit aspernatur nesciunt quibusdam perspiciatis alias aut temporibus eveniet voluptate in tempore?</p>
+        </div>
+        <div class="box1">
+          <img src="./homework_ff7/tifa.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

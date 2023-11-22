@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>象棋</title>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; 
+      margin: 0;
+      font-family: '標楷體';
+    }
+
+    .box{
+      width: 800px;
+      height: 860px;
+      border: 1px solid black;
+      margin: auto;
+      position: relative;
+    }
+
+    .p1{
+      position: absolute;
+      writing-mode: vertical-lr; 
+      font-size: 44px;
+      left: 420px;
+    }
+    .p2{
+      position: absolute;
+      writing-mode: vertical-lr;
+      font-size: 44px;
+      right: 420px;
+    }
+
+    .t1{
+      width: 50%;
+      position: absolute;
+      margin-top: 10px;
+      font-size: 44px;
+      left: 24%;
+    }
+    .t2{
+      width: 50%;
+      position: absolute;
+      margin-top: 10px;
+      font-size: 44px;
+      right: -15%;
+    }
+
+    .box1{
+      width: 656px;
+      height: 720px;
+      /* border: 1px solid black; */
+      margin: auto;
+      margin-top:60px;
+    }
+
+    .t{
+      height: 328px;
+      /* background: lightblue; */
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .m{
+      height: 80px;
+      /* background: rgb(10, 72, 93); */
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+      display: flex;
+      justify-content: space-between;
+    }
+    .b{
+      height: 328px;
+      /* background: rgb(99, 195, 226); */
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .sbox{
+      width: 80px;
+      height: 80px;
+      border: 1px solid black;
+    }
+
+    .t .sbox:nth-child(4)::before{
+      content: "";
+      display: block;
+      width: 2px;
+      height: 113px;
+      background: black;
+      transform:rotate(315deg);
+      transform-origin: left top;
+    }
+
+    .t .sbox:nth-child(5)::before{
+      content: "";
+      position: absolute;
+      display: block;
+      width: 2px;
+      height: 113px;
+      background: black;
+      transform:rotate(45deg);
+      transform-origin:50% 100%;
+      top: 28px;
+    }
+    .t .sbox:nth-child(13)::before{
+      content: "";
+      display: block;
+      width: 2px;
+      height: 113px;
+      background: black;
+      transform:rotate(315deg);
+      transform-origin: right top;
+    }
+
+    .t .sbox:nth-child(12)::before{
+      content: "";
+      position: absolute;
+      display: block;
+      width: 2px;
+      height: 115px;
+      background: black;
+      transform:rotate(45deg);
+      transform-origin:80px 80px;
+      top: 175px;
+    }
+
+    .b .sbox:nth-child(20)::before{
+      content: "";
+      display: block;
+      width: 2px;
+      height: 113px;
+      background: black;
+      transform:rotate(315deg);
+      transform-origin: left top;
+    }
+
+    .b .sbox:nth-child(21)::before{
+      content: "";
+      position: absolute;
+      display: block;
+      width: 2px;
+      height: 113px;
+      background: black;
+      transform:rotate(314deg);
+      transform-origin:left top;
+      bottom: 28px;
+    }
+    .b .sbox:nth-child(28)::before{
+      content: "";
+      position: absolute;
+      display: block;
+      width: 2px;
+      height: 113px;
+      background: black;
+      transform:rotate(45deg);
+      transform-origin: left bottom;
+      bottom: 65px;
+    }
+
+    .b .sbox:nth-child(29)::before{
+      content: "";
+      position: absolute;
+      display: block;
+      width: 2px;
+      height: 115px;
+      background: black;
+      transform:rotate(45deg);
+      transform-origin: right top;
+      bottom: 110px;
+      right: 320px;
+    }
+
+    .button{
+      position: absolute;
+      width: 90%;
+      height:100%;
+      display: flex;
+      /* background:salmon; */
+      margin: auto;
+    }
+    
+    .b1{
+      position: absolute;
+      left: 5%;
+    }
+    
+    .c{
+      z-index: 1;
+      flex-direction: row;
+      width: 60px;
+      height: 60px;
+      border-radius: 90%;
+      background: rgb(255, 255, 255);
+      border: 1px solid black;
+      text-align: center;
+      font-size: 40px;
+      line-height: 60px;
+    }
+
+    .bt{
+      margin: 10px;
+      margin-top:4%;
+    }
+
+    .b2{
+      position: absolute;
+      left: 6%;
+      display: flex;
+    }
+
+    .b21{
+      position: absolute;
+      top: 22%;
+      left: 10%;
+    }
+
+    .b22{
+      position: absolute;
+      top: 22%;
+      right: 13%;
+    }
+
+    .b3{
+      margin: 10px;
+      margin-top:3%;
+    }
+    .b31{
+      position: absolute;
+      top: 29%;
+      left: 5%;
+    }
+
+    .b32{
+      position: absolute;
+      top: 29%;
+      left: 27%;
+    }
+    .b33{
+      position: absolute;
+      top: 29%;
+      left: 50%;
+    }
+
+    .b34{
+      position: absolute;
+      top: 29%;
+      left: 73%;
+    }
+
+    .b35{
+      position: absolute;
+      top: 29%;
+      left: 95%;
+    }
+    /*---------------------red--------------------- */
+    
+    .r1{
+      position: absolute;
+      left: 5.5%;
+      top: 85%;
+    }
+    
+    .c{
+      z-index: 1;
+      flex-direction: row;
+      width: 60px;
+      height: 60px;
+      border-radius: 90%;
+      background: rgb(255, 255, 255);
+      border: 1px solid black;
+      text-align: center;
+      font-size: 40px;
+      line-height: 60px;
+    }
+
+    .r{
+      color: red;
+    }
+
+    .bt{
+      margin: 10px;
+      margin-top:4%;
+    }
+
+    .r2{
+      position: absolute;
+      left: 5.5%;
+      display: flex;
+      top: 48%;
+    }
+
+    .b21{
+      position: absolute;
+      top: 22%;
+      left: 10%;
+    }
+
+    .b22{
+      position: absolute;
+      top: 22%;
+      right: 13%;
+    }
+
+    .r3{
+      margin: 10px;
+      margin-top:33%;
+    }
+    .b31{
+      position: absolute;
+      top: 29%;
+      left: 5%;
+    }
+
+    .b32{
+      position: absolute;
+      top: 29%;
+      left: 27%;
+    }
+    .b33{
+      position: absolute;
+      top: 29%;
+      left: 50%;
+    }
+
+    .b34{
+      position: absolute;
+      top: 29%;
+      left: 73%;
+    }
+
+    .b35{
+      position: absolute;
+      top: 29%;
+      left: 95%;
+    }
+
+
+  </style>
+</head>
+<body>
+  <p class="p1" >棋盤裡，車無輪，馬無韁，叫聲將軍提防提防</p>
+  <p class="p2">圖畫裡，龍不吟，虎不嘯，小小書僮可笑可笑</p>
+  <div class="box">
+    <div class="button b1">
+      <div class="c bt">車</div>
+      <div class="c bt">馬</div>
+      <div class="c bt">象</div>
+      <div class="c bt">士</div>
+      <div class="c bt">將</div>
+      <div class="c bt">士</div>
+      <div class="c bt">象</div>
+      <div class="c bt">馬</div>
+      <div class="c bt">車</div>
+    </div>
+    <div class="button b2">
+      <div class="c b21">包</div>
+      <div class="c b22">包</div>
+    </div>
+    <div class="button b3">
+      <div class="c b31">卒</div>
+      <div class="c b32">卒</div>
+      <div class="c b33">卒</div>
+      <div class="c b34">卒</div>
+      <div class="c b35">卒</div>
+    </div>
+    <!-- red -->
+    <div class="button r r1">
+      <div class="c bt">俥</div>
+      <div class="c bt">傌</div>
+      <div class="c bt">相</div>
+      <div class="c bt">仕</div>
+      <div class="c bt">帥</div>
+      <div class="c bt">仕</div>
+      <div class="c bt">相</div>
+      <div class="c bt">傌</div>
+      <div class="c bt">俥</div>
+    </div>
+    <div class="button r r2">
+      <div class="c b21">炮</div>
+      <div class="c b22">炮</div>
+    </div>
+    <div class="button r r3">
+      <div class="c b31">兵</div>
+      <div class="c b32">兵</div>
+      <div class="c b33">兵</div>
+      <div class="c b34">兵</div>
+      <div class="c b35">兵</div>
+    </div>
+    <div class="box1">
+      <div class="t">
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+      </div>
+      <div class="m">
+        <div class="t1">楚河</div>
+        <div class="t2">漢界</div>
+      </div>
+      <div class="b">
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+        <div class="sbox"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
